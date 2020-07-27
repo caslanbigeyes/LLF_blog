@@ -5,6 +5,7 @@ import axios from "axios";
 import servicePath from "../config/apiUrl";
 import "../static/style/components/header.css";
 
+
 const Header = () => {
   const [navArray, setNavArray] = useState([]);
   useEffect(() => {
@@ -16,6 +17,10 @@ const Header = () => {
   }, []);
   //跳转到列表页
   const handleClick = (e) => {
+    // console.log(e.domEvent.clientY)
+    // e.domEvent.clientY = 0
+    // window.scrollY = 0
+    // console.log( window.scrollY)
     if (e.key == 0) {
       Router.push("/index");
       setTimeout(function () {
@@ -31,7 +36,6 @@ const Header = () => {
     <div className="header">
       <Row type="flex" justify="center">
         <Col xs={16} sm={16} md={10} lg={10} xl={10}>
-          {/* <span className="header-logo">CYQ</span> */}
           <span className="sign">
             <span className="fast-flicker">L</span>L
             <span className="flicker">F</span>
@@ -59,6 +63,7 @@ const Header = () => {
               </Menu.Item>
             ))}
             {/* <Menu.Item key="5">
+              <SmileOutlined/>
             <UserOutlined />
               登录
             </Menu.Item> */}

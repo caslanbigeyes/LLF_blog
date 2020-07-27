@@ -6,32 +6,32 @@ function callback (key) {
 }
 const Advert = () => {
   return (
-    <div className="ad-div comm-box">
+    <div className="ad-di">
       <Tabs defaultActiveKey="1" onChange={callback}>
         <TabPane tab="QQ 群" key="1" className="comm-box">
           <div className="qq-title">加入QQ群一起学习</div>
           <div className="qq-number">
-            <a href="https://jq.qq.com/?_wv=1027&k=57VJ0P8">
+            <a href="https://jq.qq.com/?_wv=1027&k=x8eQ4CBs">
               <Avatar size={18} icon="qq" className="account" />
-                前端交流群(12312312)
+                前端交流群(781650249)
               </a>
           </div>
           <div className="qq-number">
-            <a href="https://jq.qq.com/?_wv=1027&k=57VJ0P8">
+            <a href="https://jq.qq.com/?_wv=1027&k=x8eQ4CBs">
               <Avatar size={18} icon="qq" className="account" />
-                前端交流群(123123123)
+                前端交流群(781650249)
               </a>
           </div>
           <div className="qq-number">
-            <a href="https://jq.qq.com/?_wv=1027&k=57VJ0P8">
+            <a href="https://jq.qq.com/?_wv=1027&k=x8eQ4CBs">
               <Avatar size={18} icon="qq" className="account" />
-                前端交流群(123123123)
+                前端交流群(781650249)
               </a>
           </div>
           <div className="qq-number">
-            <a href="https://jq.qq.com/?_wv=1027&k=57VJ0P8">
+            <a href="https://jq.qq.com/?_wv=1027&k=x8eQ4CBs">
               <Avatar size={18} icon="qq" className="account" />
-                前端交流群(1231231231)
+                前端交流群(781650249)
               </a>
           </div>
         </TabPane>

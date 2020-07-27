@@ -29,3 +29,23 @@ export const initMarked = ({ hasTocify=false }) => {
 
   return { marked: Marked, tocify }
 }
+
+export function gen_text_img(s) {
+    let colors = [
+        "rgb(239,150,26)", 'rgb(255,58,201)', "rgb(111,75,255)", "rgb(36,174,34)", "rgb(80,80,80)"
+    ];
+    let cvs = document.createElement("canvas");
+    cvs.setAttribute('width', 100);
+    cvs.setAttribute('height', 100);
+    // cvs.setAttribute('borderRadius', '50%');
+    let ctx = cvs.getContext("2d");
+    ctx.fillStyle = colors[Math.floor(Math.random() * (colors.length))];
+    ctx.fillRect(0, 0, 100, 100);
+    ctx.fillStyle = 'rgb(255,255,255)';
+    ctx.font =40 * 0.6 + "px Arial";
+    ctx.textBaseline = "middle";
+    ctx.textAlign = "center";
+    ctx.fillText(s, 100 / 2, 100 / 2);
+
+    return cvs.toDataURL('image/jpeg', 1);
+}

@@ -11,7 +11,6 @@ const ArticleList = ({ list }) => {
   const [typeName, setTypeName] = useState();
   useEffect(() => {
     setMylist(list.data);
-    console.log(mylist);
     if (mylist == '') {
       setTypeName("暂无文章");
     } else {

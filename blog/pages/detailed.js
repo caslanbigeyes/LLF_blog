@@ -11,6 +11,7 @@ import ListIcon from '../components/ListIcon';
 import Layout from "../components/Layout";
 
 
+
 const Detailed = props => {
   const { marked, tocify } = initMarked({ hasTocify: true })
   const [isLoading, setIsLoading] = useState(false);
@@ -42,14 +43,13 @@ const Detailed = props => {
     }
     return isSuccess;
   };
-
+  
   return (
     <Layout
       pageTitle="博客详情页 | LLF的个人博客"
       renderRight={() => (
         <div>
           <Author />
-          {/* <Advert /> */}
           <Affix offsetTop={5}>
             <div className="detailed-nav comm-box">
               <div className="nav-title">文章目录</div>
@@ -66,7 +66,7 @@ const Detailed = props => {
               <Breadcrumb.Item>
                 <a href="/">首页</a>
               </Breadcrumb.Item>
-              <Breadcrumb.Item>{props.typeName}</Breadcrumb.Item>
+              <Breadcrumb.Item ><a href={`list?id=${props.typeId}`}>{props.typeName}</a></Breadcrumb.Item>
               <Breadcrumb.Item> {props.title}</Breadcrumb.Item>
             </Breadcrumb>
           </div>

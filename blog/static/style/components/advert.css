@@ -1,8 +1,8 @@
-.ad-div{
+.ad-di{
     margin-top: .5rem;
   background-color:rgba(255,255,255,0.5);
 }
-.ad-div div{
+.ad-di div{
     border-radius: .3rem;
     margin-bottom: .2rem;
     /* overflow: hidden; */
@@ -29,7 +29,7 @@
 /* tab选项名 */
 .ant-tabs-nav .ant-tabs-tab-active{
     font-weight: bold;
-    color:#f40;
+    color:rgba(91, 80, 83, 0.364);
 }
 
 

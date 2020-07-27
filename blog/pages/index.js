@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import ListItem from "../components/ListItem";
 import CountTo from "react-count-to";
 import { initMarked } from "../components/utils";
+import Advert from "../components/Advert";
 const { marked } = initMarked({});
 const SearchInput = Input.Search;
 
@@ -102,6 +103,7 @@ const Home = ({ list }) => {
             )}
           />
         </div>
+      
       </Spin>
     </Layout>
   );
@@ -112,7 +114,6 @@ Home.getInitialProps = async () => {
     url: servicePath.getArticleList,
     withCredentials: true, // 携带跨域cookie
   });
-  console.log(res.data);
   return { list: res.data };
 };
 

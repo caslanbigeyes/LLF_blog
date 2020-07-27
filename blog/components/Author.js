@@ -67,7 +67,7 @@ const Author = () => {
       <div className="avatar-img">
         <Avatar
           size={100}
-          src="../static/img/author-img.jpg"
+          src="../static/img/22222.jpg"
         />
       </div>
       <div style={{ fontSize: 30, fontWeight: 700 }}>LLF

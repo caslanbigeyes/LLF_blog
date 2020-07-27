@@ -4,7 +4,8 @@ const Controller = require("egg").Controller;
 
 class HomeController extends Controller {
   async index() {
-    this.ctx.boby = "<h1>123</h1>";
+    this.ctx.body = `哈哈啊`
+    // this.ctx.boby = "<h1>123</h1>";
   }
   // 首页获取列表
   async getArticleList() {
@@ -46,7 +47,7 @@ class HomeController extends Controller {
     // 增加阅读数
     let sql2 = "update article set view_count = view_count + 1 where id =" + id;
     const result2 = await this.app.mysql.query(sql2);
-    
+    console.log(result2)
     let sql = `
         SELECT article.id as id,
         article.title as title,
@@ -87,32 +88,32 @@ class HomeController extends Controller {
   }
 
   // 注册
-  // async registerVisitor() {
-  //   let visitorInfo = this.ctx.request.body;
-  //   const result = await this.app.mysql.insert("visitor", visitorInfo);
-  //   const insertSuccess = result.affectedRows === 1;
-  //   const insertId = result.insertId;
-  //   this.ctx.body = {
-  //     isSuccess: insertSuccess,
-  //     insertId: insertId
-  //   };
-  // }
+  async registerVisitor() {
+    let visitorInfo = this.ctx.request.body;
+    const result = await this.app.mysql.insert("visitor", visitorInfo);
+    const insertSuccess = result.affectedRows === 1;
+    const insertId = result.insertId;
+    this.ctx.body = {
+      isSuccess: insertSuccess,
+      insertId: insertId
+    };
+  }
 
   //判断用户名密码是否正确
-  // async checkLogin() {
-  //   let userName = this.ctx.request.body.userName;
-  //   let password = this.ctx.request.body.password;
-  //   const sql = `SELECT userName FROM visitor WHERE userName = ${userName} AND password = ${password}`
-  //   const res = await this.app.mysql.query(sql);
-  //   if (res.length > 0) {
-  //     //登录成功,进行session缓存
-  //     let openId = new Date().getTime();
-  //     this.ctx.session.openId = { openId: openId };
-  //     this.ctx.body = { data: "登录成功", openId: openId, userName: userName };
-  //   } else {
-  //     this.ctx.body = { data: "登录失败" };
-  //   }
-  // }
+  async checkLogin() {
+    let userName = this.ctx.request.body.userName;
+    let password = this.ctx.request.body.password;
+    const sql = `SELECT userName FROM visitor WHERE userName = ${userName} AND password = ${password}`
+    const res = await this.app.mysql.query(sql);
+    if (res.length > 0) {
+      //登录成功,进行session缓存
+      let openId = new Date().getTime();
+      this.ctx.session.openId = { openId: openId };
+      this.ctx.body = { data: "登录成功", openId: openId, userName: userName };
+    } else {
+      this.ctx.body = { data: "登录失败" };
+    }
+  }
 
   //获取总文章数和总浏览数
   async getAllPartCount() {

@@ -4,6 +4,10 @@
   width: 15px;
   height: 1px;
 }
+.ant-list-items{
+  box-shadow: 0 0 6px #999;
+  padding: 20px;
+}
 
 ::-webkit-scrollbar-track {
   /* 外层轨道。 */
@@ -23,10 +27,15 @@
   background-image: -webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
 }
 body {
-  background-color: #f6f6f6;
+  background-color:#ffffff;
   background-image: url("/static/img/blog-bg.jpg");
 }
-
+@media screen and (max-width: 960px){
+  body{
+    background-color:#ffffff;
+    overflow-x: hidden;
+  }
+}
 pre {
   display: block;
   background-color: #283646 !important;
