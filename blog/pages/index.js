@@ -30,7 +30,7 @@ const Home = ({ list }) => {
     setIsLoading(true);
   };
   return (
-    <Layout pageTitle="首页 | LLF的个人博客">
+    <Layout pageTitle="首页 | Blue">
       <Spin tip="Loading..." spinning={isLoading}>
         <div className="searchBox">
           <SearchInput

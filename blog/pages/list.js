@@ -20,7 +20,7 @@ const ArticleList = ({ list }) => {
   });
 
   return (
-    <Layout pageTitle="列表 | LLF的个人博客">
+    <Layout pageTitle="列表 | Blue">
       {/* <div className="bread-div">
         <Breadcrumb>
           <Breadcrumb.Item>

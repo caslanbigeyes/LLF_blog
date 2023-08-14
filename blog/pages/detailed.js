@@ -46,7 +46,7 @@ const Detailed = props => {
   
   return (
     <Layout
-      pageTitle="博客详情页 | LLF的个人博客"
+      pageTitle="博客详情页 | Blue的个人博客"
       renderRight={() => (
         <div>
           <Author />
