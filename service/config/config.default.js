@@ -41,7 +41,7 @@ module.exports = appInfo => {
       // username
       user: "root",
       // password
-      password: "123456",
+      password: "li123123",
       // database
       database: "react-blog"
     },
