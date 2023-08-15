@@ -13,7 +13,7 @@ class MainController extends Controller {
     let password = this.ctx.request.body.password;
     const sql = `SELECT userName FROM user WHERE userName = "${userName}" AND password = "${password}"`
     const res = await this.app.mysql.query(sql);
-
+    console.log(res, 'res')
     if (res.length > 0) {
       //登录成功,进行session缓存
       let openId = new Date().getTime();
@@ -25,23 +25,24 @@ class MainController extends Controller {
     }
   }
 
-      //退出登录
-      async outLogin(){
-        this.ctx.session.openId=null 
-        this.ctx.body={'data':'退出成功'}
+  //退出登录
+  async outLogin() {
+    this.ctx.session.openId = null
+    this.ctx.body = { 'data': '退出成功' }
 
+  }
+
+  async checkOpenId() {
+    let cOpenId = this.ctx.request.body.openId
+    let sOpenId = this.ctx.session.openId
+    console.log(this.ctx.request.body, this.ctx.session.openId, '+________________')
+    if (sOpenId & cOpenId == sOpenId) {
+      this.ctx.body = { data: '已经登录' }
+      return false
+    } else {
+      this.ctx.body = { data: '没有登录' }
     }
-
-    async checkOpenId(){
-        let cOpenId = this.ctx.request.body.openId
-        let sOpenId = this.ctx.session.openId.openId
-        if(sOpenId & cOpenId==sOpenId){
-            this.ctx.body={data:'已经登录'}
-        }else{
-            this.ctx.body={data:'没有登录'}
-        }
-
-    }
+  }
 
   //获取类别
   async getTypeInfo() {
@@ -72,19 +73,19 @@ class MainController extends Controller {
     };
   }
 
-      //修改文章置顶信息
-      async updateIsTop(){
-        let tmpArticle= this.ctx.request.body
+  //修改文章置顶信息
+  async updateIsTop() {
+    let tmpArticle = this.ctx.request.body
 
-        let sql = 'update  article set isTop = '+tmpArticle.isTop+' where id = '+tmpArticle.id
-        let updateResult=await this.app.mysql.query(sql)
-        const updateSuccess = updateResult.affectedRows === 1
-        if(updateSuccess){
-            this.ctx.body={data:'success'}
-        }else{
-            this.ctx.body={data:'error'}
-        }
+    let sql = 'update  article set isTop = ' + tmpArticle.isTop + ' where id = ' + tmpArticle.id
+    let updateResult = await this.app.mysql.query(sql)
+    const updateSuccess = updateResult.affectedRows === 1
+    if (updateSuccess) {
+      this.ctx.body = { data: 'success' }
+    } else {
+      this.ctx.body = { data: 'error' }
     }
+  }
 
   //获得文章列表
   async getArticleList() {

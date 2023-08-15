@@ -15,8 +15,8 @@ function Login (props) {
   useEffect(() => {
     //检查是否已经登录
     let openId = localStorage.getItem("openId");
+    console.log(openId,'openId');
     let dataProps = { openId: openId };
-    console.log(openId);
     if (openId) {
       axios({
         method: "post",
@@ -27,7 +27,7 @@ function Login (props) {
       }).then((res) => {
         console.log(res);
         if (res.data.data) {
-          message.success("已经登录");
+          // message.success("已经登录");
           props.history.push("/index");
         }
       });

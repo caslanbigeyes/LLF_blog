@@ -99,7 +99,7 @@ function AdminIndex(props) {
       <Layout>
         <Content style={{ margin: "0 16px" }}>
           <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>CYQ博客后台管理</Breadcrumb.Item>
+            <Breadcrumb.Item>LLF博客后台管理</Breadcrumb.Item>
             {/* <Breadcrumb.Item>工作台</Breadcrumb.Item> */}
           </Breadcrumb>
           <div style={{ padding: 24, background: "#fff", minHeight: 360 }}>
@@ -113,7 +113,7 @@ function AdminIndex(props) {
             </Switch>
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>CYQ.com</Footer>
+        <Footer style={{ textAlign: "center" }}>LLF.com</Footer>
       </Layout>
     </Layout>
   );
