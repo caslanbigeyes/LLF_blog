@@ -19,8 +19,11 @@ class HomeController extends Controller {
         FROM article LEFT JOIN type ON article.type_id = type.Id
         WHERE article.isTop = 0 order by article.id desc
       `;
+      
     const results = await this.app.mysql.query(sql);
+    console.log(results)
 
+    
     //置顶文章
     let sql2 = `
     SELECT article.id as id,
@@ -84,6 +87,7 @@ class HomeController extends Controller {
         WHERE type_id=${id}
       `;
     const result = await this.app.mysql.query(sql);
+    console.log(result,'result')
     this.ctx.body = { data: result };
   }
 

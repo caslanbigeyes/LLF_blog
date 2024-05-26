@@ -8,6 +8,7 @@ import ListItem from "../components/ListItem";
 import CountTo from "react-count-to";
 import { initMarked } from "../components/utils";
 import Advert from "../components/Advert";
+import { Criterion } from './welcome';
 const { marked } = initMarked({});
 const SearchInput = Input.Search;
 
@@ -19,6 +20,7 @@ const Home = ({ list }) => {
   const [toplist, setToplist] = useState(list.topList);
   const [isLoading, setIsLoading] = useState(false);
   const [keywords, setKeywords] = useState("");
+  const [showBg, setShowBg] = useState(true);
 
   useEffect(() => {
     const mylist = fixedlist.filter((item) => item.title.match(keywords));
@@ -29,7 +31,16 @@ const Home = ({ list }) => {
   const goLoading = () => {
     setIsLoading(true);
   };
-  return (
+
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     // setShowBg(false);
+  //   }, 20000)
+  // }, [])
+
+  return showBg ? (
+    <Criterion />
+  ) : (
     <Layout pageTitle="首页 | Blue">
       <Spin tip="Loading..." spinning={isLoading}>
         <div className="searchBox">
@@ -103,7 +114,7 @@ const Home = ({ list }) => {
             )}
           />
         </div>
-      
+
       </Spin>
     </Layout>
   );

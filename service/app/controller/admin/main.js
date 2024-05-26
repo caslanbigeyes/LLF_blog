@@ -17,9 +17,10 @@ class MainController extends Controller {
     if (res.length > 0) {
       //登录成功,进行session缓存
       let openId = new Date().getTime();
-      console.log(this.ctx)
+      console.log(this.ctx,'3333333333333333')
       this.ctx.session.openId = { openId: openId };
-      this.ctx.body = { data: "登录成功", openId: openId };
+      console.log( this.ctx,222)
+      this.ctx.body = { data: "登录成功", openId: openId, status:200 };
     } else {
       this.ctx.body = { data: "登录失败" };
     }
@@ -35,7 +36,7 @@ class MainController extends Controller {
   async checkOpenId() {
     let cOpenId = this.ctx.request.body.openId
     let sOpenId = this.ctx.session.openId
-    console.log(this.ctx.request.body, this.ctx.session.openId, '+________________')
+    console.log(this.ctx.request, this.ctx, '+________________')
     if (sOpenId & cOpenId == sOpenId) {
       this.ctx.body = { data: '已经登录' }
       return false
@@ -100,6 +101,7 @@ class MainController extends Controller {
         ORDER BY article.id DESC
       `
     const resList = await this.app.mysql.query(sql);
+    debugger
     this.ctx.body = { list: resList };
   }
 

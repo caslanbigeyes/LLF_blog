@@ -21,7 +21,7 @@ function ArticleList(props) {
     }).then((res) => {
       setList(res.data.list);
       console.log(res);
-      if (res.data.data == "没有登录") {
+      if (res.data.status !== 200) {
         message.warning("登录状态失效，重新登录");
         setTimeout(() => {
           props.history.push("/");

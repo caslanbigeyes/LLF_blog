@@ -29,6 +29,11 @@ export default class Music extends React.Component {
       listFolded: true,
       audio: [
         {
+          name: '回到夏天',
+          artist: '陈泓宇',
+          url: "https://m701.music.126.net/20240507002640/5436fb0b7ef6d3f436e1557a54532b0d/jdymusic/obj/wo3DlMOGwrbDjj7DisKw/14096429793/d61f/7467/3bd8/fffa144ba95eaf3f6a9ef37f8451f7b4.mp3"
+        },
+        {
           name: '哈喽',
           artist: '陈泓宇',
           url: 'http://m10.music.126.net/20200727100615/0c15c07de5532347d39be376103ecb4a/ymusic/0e5e/0209/0259/94b084e3b25c722150b453729572e12c.mp3',
@@ -53,7 +58,7 @@ export default class Music extends React.Component {
           theme: '#46718b'
         },
 
-     
+
       ]
     };
 
