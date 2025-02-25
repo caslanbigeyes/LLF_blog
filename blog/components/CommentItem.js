@@ -1,3 +1,4 @@
+import React from 'react'
 import { Avatar, Comment } from 'antd';
 import '../static/style/components/comment.css'
 import {gen_text_img} from './utils'

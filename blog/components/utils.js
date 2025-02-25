@@ -1,3 +1,4 @@
+import React from 'react'
 import Marked from "marked";
 import hljs from "highlight.js";
 import Tocify from "./tocify.js";

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Form, Input, Button ,Divider} from 'antd';
 import '../static/style/components/comment.css'
 const TextArea = Input.TextArea;

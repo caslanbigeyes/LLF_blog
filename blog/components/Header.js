@@ -22,10 +22,10 @@ const Header = () => {
     // window.scrollY = 0
     // console.log( window.scrollY)
     if (e.key == 0) {
-      Router.push("/index");
-      setTimeout(function () {
-        location.reload();
-      }, 1000);
+      Router.push("/");
+      // setTimeout(function () {
+      //   location.reload();
+      // }, 1000);
     } else if (e.key == 5) {
       Router.push("/login");
     } else {
