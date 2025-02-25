@@ -6,8 +6,17 @@ import Footer from "./Footer";
 import Author from "./Author";
 import Advert from "./Advert";
 import "../static/style/pages/index.css";
-import DynamicPublish from './MusicWrap'
+// import DynamicPublish from './MusicWrap'
+
+
+
+
 import React, { useEffect, useState } from 'react'
+
+import dynamic from 'next/dynamic';
+
+// 延迟加载 APlayer 并禁用 SSR
+const DynamicPublish = dynamic(() => import('./MusicWrap'), { ssr: false });
 
 const Layout = ({ pageTitle = "", renderRight, children = null }) => {
 
@@ -51,14 +60,14 @@ const Layout = ({ pageTitle = "", renderRight, children = null }) => {
           {renderRight ? (
             renderRight()
           ) : (
-              <>
-                <Author />
-                <Affix offsetTop={5}>
-                  <Advert />
-                </Affix>
+            <>
+              <Author />
+              <Affix offsetTop={5}>
+                <Advert />
+              </Affix>
 
-              </>
-            )}
+            </>
+          )}
         </Col>
         <DynamicPublish />
       </Row>

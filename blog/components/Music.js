@@ -1,22 +1,27 @@
 import React from 'react';
 import ReactAplayer from 'react-aplayer';
 
-
-
 export default class Music extends React.Component {
   // event binding example
-  onPlay = () => {
-    console.log('on play');
-  };
+  constructor(props) {
+    super(props);
+    this.onPlay = this.onPlay.bind(this);
+    this.onPause = this.onPause.bind(this);
+    this.onInit = this.onInit.bind(this);
+  }
 
-  onPause = () => {
+  onPlay() {
+    console.log('on play');
+  }
+
+  onPause() {
     console.log('on pause');
-  };
+  }
 
   // example of access aplayer instance
-  onInit = ap => {
+  onInit(ap) {
     this.ap = ap;
-  };
+  }
 
   render() {
     const props = {
@@ -48,7 +53,6 @@ export default class Music extends React.Component {
           lrc: 'https://cn-south-17-aplayer-46154810.oss.dogecdn.com/darling.lrc',
           theme: '#46718b'
         },
-
         {
           name: '宝宝',
           artist: 'XX:me',
@@ -57,8 +61,6 @@ export default class Music extends React.Component {
           lrc: 'https://cn-south-17-aplayer-46154810.oss.dogecdn.com/darling.lrc',
           theme: '#46718b'
         },
-
-
       ]
     };
 

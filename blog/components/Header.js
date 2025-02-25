@@ -40,7 +40,7 @@ const Header = () => {
             <span className="fast-flicker">L</span>L
             <span className="flicker">F</span>
           </span>
-          <span className="header-txt">一个记录自己的个人博客</span>
+          <span className="header-txt">随记</span>
         </Col>
         <Col className="memu-div" xs={8} sm={8} md={14} lg={10} xl={8}>
           <Menu

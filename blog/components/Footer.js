@@ -1,3 +1,5 @@
+import React from 'react'
+
 import '../static/style/components/footer.css'
 
 const Footer = () => (

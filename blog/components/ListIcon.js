@@ -1,3 +1,5 @@
+import React from 'react'
+
 import CountTo from "react-count-to";
 import { Icon } from "antd";
 

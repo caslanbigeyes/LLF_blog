@@ -1,29 +1,28 @@
 import React from 'react';
 import { Anchor } from 'antd';
 import { last } from 'lodash';
+import { Table } from 'antd';
+
 
 const { Link } = Anchor;
 
-export interface TocItem {
-  anchor: string;
-  level: number;
-  text: string;
-  children?: TocItem[];
-}
+// export interface TocItem {
+//   anchor: string;
+//   level: number;
+//   text: string;
+//   children?: TocItem[];
+// }
 
-export type TocItems = TocItem[]; // TOC目录树结构
+// export type TocItems = TocItem[]; // TOC目录树结构
 
 export default class Tocify {
-  tocItems: TocItems = [];
-
-  index: number = 0;
-
   constructor() {
     this.tocItems = [];
     this.index = 0;
+    this.reset = this.reset.bind(this);
   }
 
-  add(text: string, level: number) {
+  add(text, level) {
     const anchor = `toc${level}${++this.index}`;
     const item = { anchor, level, text };
     const items = this.tocItems;
@@ -31,7 +30,7 @@ export default class Tocify {
     if (items.length === 0) { // 第一个 item 直接 push
       items.push(item);
     } else {
-      let lastItem = last(items) as TocItem; // 最后一个 item
+      let lastItem = last(items); // 最后一个 item
 
       if (item.level > lastItem.level) { // item 是 lastItem 的 children
         for (let i = lastItem.level + 1; i <= 2; i++) {
@@ -41,7 +40,7 @@ export default class Tocify {
             break;
           }
 
-          lastItem = last(children) as TocItem; // 重置 lastItem 为 children 的最后一个 item
+          lastItem = last(children); // 重置 lastItem 为 children 的最后一个 item
 
           if (item.level <= lastItem.level) { // item level 小于或等于 lastItem level 都视为与 children 同级
             children.push(item);
@@ -56,12 +55,12 @@ export default class Tocify {
     return anchor;
   }
 
-  reset = () => {
+  reset() {
     this.tocItems = [];
     this.index = 0;
-  };
+  }
 
-  renderToc(items: TocItem[]) { // 递归 render
+  renderToc(items) { // 递归 render
     return items.map(item => (
       <Link key={item.anchor} href={`#${item.anchor}`} title={item.text}>
         {item.children && this.renderToc(item.children)}
@@ -72,7 +71,7 @@ export default class Tocify {
   render() {
     return (
       <Anchor affix showInkInFixed>
-         {this.renderToc(this.tocItems)}
+        {this.renderToc(this.tocItems)}
       </Anchor>
     );
   }

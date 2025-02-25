@@ -1,6 +1,6 @@
 import Marked from "marked";
 import hljs from "highlight.js";
-import Tocify from "./tocify.tsx";
+import Tocify from "./tocify.js";
 import "highlight.js/styles/monokai-sublime.css";
 
 export const initMarked = ({ hasTocify=false }) => {

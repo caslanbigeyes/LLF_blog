@@ -1,3 +1,4 @@
+"use client"
 import React, { useState, useEffect } from "react";
 import { List, Input, Spin, Tag, Icon } from "antd";
 import Link from "next/link";
@@ -38,9 +39,7 @@ const Home = ({ list }) => {
   //   }, 20000)
   // }, [])
 
-  return showBg ? (
-    <Criterion />
-  ) : (
+  return (
     <Layout pageTitle="首页 | Blue">
       <Spin tip="Loading..." spinning={isLoading}>
         <div className="searchBox">

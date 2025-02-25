@@ -1,3 +1,4 @@
+import React from 'react'
 import { Tabs, Avatar } from "antd";
 import "../static/style/components/advert.css";
 const { TabPane } = Tabs;

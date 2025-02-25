@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import { Affix, Breadcrumb, Spin, message } from "antd";
 import Author from "../components/Author";
